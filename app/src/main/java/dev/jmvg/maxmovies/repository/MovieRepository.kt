@@ -54,8 +54,8 @@ object MovieRepository {
   fun getTopRated(page: Int, callback: (List<Movie>) -> Unit){
     CoroutineScope(GlobalScope.coroutineContext).launch(Dispatchers.Main) {
       withContext(Dispatchers.IO){
-        val callApi = movieApiInterface.getTopRated(page = page)
-        callApi.enqueue(object : Callback<Movies> {
+        movieApiInterface.getTopRated(page = page)
+          .enqueue(object : Callback<Movies> {
           override fun onResponse(call: Call<Movies>, response: Response<Movies>) {
             callback(response.body()?.results ?: mutableListOf())
           }
