@@ -28,13 +28,24 @@ class MainActivity : AppCompatActivity() {
 
 
   private fun setupList() {
-    val adapter = MoviesAdapter {id ->
-      openDetailsActivity(id)
-    }
-    binding.recyclerViewMoviePopular.adapter = adapter
+    val adapterPopular = MoviesAdapter(this::openDetailsActivity)
+    val adapterTopRated = MoviesAdapter(this::openDetailsActivity)
+    val adapterUpcoming = MoviesAdapter(this::openDetailsActivity)
 
-    MovieRepository.getPopularMovies(1, adapter::setItems)
-    MovieRepository.getPopularMovies(2, adapter::setItems)
+
+    binding.recyclerViewMoviePopular.adapter = adapterPopular
+    binding.recyclerViewMovieTopRated.adapter = adapterTopRated
+    binding.recyclerViewMovieUpcoming.adapter = adapterUpcoming
+
+    MovieRepository.getPopularMovies(1, adapterPopular::setItems)
+    MovieRepository.getPopularMovies(2, adapterPopular::setItems)
+
+    MovieRepository.getTopRated(1, adapterTopRated::setItems)
+    MovieRepository.getTopRated(2, adapterTopRated::setItems)
+
+    MovieRepository.getUpComing(1, adapterUpcoming::setItems)
+    MovieRepository.getUpComing(2, adapterUpcoming::setItems)
+
 
   }
 

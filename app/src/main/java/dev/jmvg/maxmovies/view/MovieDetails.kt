@@ -4,9 +4,10 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import dev.jmvg.maxmovies.api.MovieAPI.BASE_IMAGE_URL
-import dev.jmvg.maxmovies.databinding.ActivityMainBinding
 import dev.jmvg.maxmovies.databinding.ActivityMovieDetailsBinding
 import dev.jmvg.maxmovies.repository.MovieRepository
+import java.text.NumberFormat
+import java.util.*
 
 
 class MovieDetails : AppCompatActivity() {
@@ -24,8 +25,8 @@ class MovieDetails : AppCompatActivity() {
     MovieRepository.getMovieById(id){
       binding.movieTitle.text = it.title
       binding.movieRating.text = it.vote_average.toString()
-      binding.movieBudget.text = it.budget.toString()
-      binding.movieRevenue.text = it.revenue.toString()
+      binding.movieBudget.text = converterValues(it.budget)
+      binding.movieRevenue.text = converterValues(it.revenue)
       binding.movieReleaseDate.text = it.release_date
 
 
@@ -35,6 +36,19 @@ class MovieDetails : AppCompatActivity() {
         .load("${BASE_IMAGE_URL}${it.backdrop_path}")
         .into(binding.moviePoster)
 
+
+
     }
+
+
+
+  }
+
+  private fun converterValues(value: Int): String {
+    Locale.setDefault(Locale("pt", "BR"))
+    val format = NumberFormat.getCurrencyInstance()
+    format.maximumFractionDigits = 0
+    format.currency = Currency.getInstance("BRL")
+    return format.format(value).toString()
   }
 }
