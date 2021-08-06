@@ -3,203 +3,197 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/black"
-    tools:context=".view.MovieDetails">
-
-
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <LinearLayout
-            android:id="@+id/linearLayout"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="@color/black"
+            tools:context=".view.MovieDetails">
 
-                <ImageView
-                    android:id="@+id/movie_poster"
-                    android:layout_width="match_parent"
-                    android:layout_height="400dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/ic_launcher_background"
-                    android:scaleType="centerCrop"
-                    android:contentDescription="@string/movie_cover"
-                />
-
-                <ImageView
-                    android:id="@+id/gradiente"
-                    android:layout_width="0dp"
-                    android:layout_height="300dp"
-                    android:contentDescription="@string/background_imagem"
-                    app:layout_constraintBottom_toBottomOf="@+id/movie_poster"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:srcCompat="@drawable/gradient_bg" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_margin="8dp">
-
-                <TextView
-                    android:id="@+id/movie_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textStyle="bold"
-                    android:text="@string/movie_title"
-                    android:textSize="20sp"
-                    android:textColor="@color/white"/>
-
-                <TextView
-                    android:id="@+id/movie_tagline"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textStyle="bold"
-                    android:text="@string/sub_title"
-                    android:layout_marginTop="5dp"
-                    android:textSize="16sp"
-                    android:textColor="@color/grayLight"/>
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
                 <LinearLayout
+                    android:id="@+id/linearLayout"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                        <ImageView
+                            android:id="@+id/movie_poster"
+                            android:layout_width="match_parent"
+                            android:layout_height="400dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_launcher_background"
+                            android:scaleType="centerCrop"
+                            android:contentDescription="@string/movie_cover"
+                            />
+
+                        <ImageView
+                            android:id="@+id/gradiente"
+                            android:layout_width="0dp"
+                            android:layout_height="300dp"
+                            android:contentDescription="@string/background_imagem"
+                            app:layout_constraintBottom_toBottomOf="@+id/movie_poster"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:srcCompat="@drawable/gradient_bg" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:text="@string/release_date"
-                        android:textColor="@color/grayLight"
-                        android:textSize="14sp"
-                        />
+                        android:orientation="vertical"
+                        android:layout_margin="8dp">
 
-                    <TextView
-                        android:id="@+id/movie_release_date"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="5dp"
-                        android:text="2020"
-                        android:textSize="14sp"
-                        android:textColor="@color/white"
-                        />
-                </LinearLayout>
+                        <TextView
+                            android:id="@+id/movie_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:text="@string/movie_title"
+                            android:textSize="20sp"
+                            android:textColor="@color/white"/>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:text="@string/rating"
-                        android:textColor="@color/grayLight"
-                        android:textSize="14sp"
-                        />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:text="@string/release_date"
+                                android:textColor="@color/grayLight"
+                                android:textSize="14sp"
+                                />
 
-                    <TextView
-                        android:id="@+id/movie_rating"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="5dp"
-                        android:text="10"
-                        android:textSize="14sp"
-                        android:textColor="@color/white"
-                        />
-                </LinearLayout>
+                            <TextView
+                                android:id="@+id/movie_release_date"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginStart="5dp"
+                                android:text="2020"
+                                android:textSize="14sp"
+                                android:textColor="@color/white"
+                                />
+                        </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:text="@string/budget"
-                        android:textColor="@color/grayLight"
-                        android:textSize="14sp"
-                        />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:text="@string/rating"
+                                android:textColor="@color/grayLight"
+                                android:textSize="14sp"
+                                />
 
-                    <TextView
-                        android:id="@+id/movie_budget"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="5dp"
-                        android:text="130.000"
-                        android:textSize="14sp"
-                        android:textColor="@color/white"
-                        />
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                            <TextView
+                                android:id="@+id/movie_rating"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginStart="5dp"
+                                android:text="10"
+                                android:textSize="14sp"
+                                android:textColor="@color/white"
+                                />
+                        </LinearLayout>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:text="@string/revenue"
-                        android:textColor="@color/grayLight"
-                        android:textSize="14sp"
-                        />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
 
-                    <TextView
-                        android:id="@+id/movie_revenue"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="5dp"
-                        android:text="200.000"
-                        android:textSize="14sp"
-                        android:textColor="@color/white"
-                        />
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:text="@string/budget"
+                                android:textColor="@color/grayLight"
+                                android:textSize="14sp"
+                                />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:text="@string/overview"
-                        android:textColor="@color/grayLight"
-                        android:textSize="14sp"
-                        />
+                            <TextView
+                                android:id="@+id/movie_budget"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginStart="5dp"
+                                android:text="130.000"
+                                android:textSize="14sp"
+                                android:textColor="@color/white"
+                                />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
 
-                    <TextView
-                        android:id="@+id/movie_overview"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="5dp"
-                        android:text="Descrição....."
-                        android:textSize="14sp"
-                        android:textColor="@color/white"
-                        />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:text="@string/revenue"
+                                android:textColor="@color/grayLight"
+                                android:textSize="14sp"
+                                />
+
+                            <TextView
+                                android:id="@+id/movie_revenue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginStart="5dp"
+                                android:text="200.000"
+                                android:textSize="14sp"
+                                android:textColor="@color/white"
+                                />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:text="@string/overview"
+                                android:textColor="@color/grayLight"
+                                android:textSize="14sp"
+                                />
+
+                            <TextView
+                                android:id="@+id/movie_overview"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginStart="5dp"
+                                android:text="Descrição....."
+                                android:textSize="14sp"
+                                android:textColor="@color/white"
+                                />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
                 </LinearLayout>
 
             </LinearLayout>
-
-
-        </LinearLayout>
-
-    </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </layout>

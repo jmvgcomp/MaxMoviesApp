@@ -1,11 +1,13 @@
 package dev.jmvg.maxmovies.view
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
-import dev.jmvg.maxmovies.api.TheMoviesAPI.BASE_IMAGE
+import dev.jmvg.maxmovies.api.MovieAPI.BASE_IMAGE_URL
+import dev.jmvg.maxmovies.databinding.ActivityMainBinding
 import dev.jmvg.maxmovies.databinding.ActivityMovieDetailsBinding
 import dev.jmvg.maxmovies.repository.MovieRepository
+
 
 class MovieDetails : AppCompatActivity() {
 
@@ -19,18 +21,20 @@ class MovieDetails : AppCompatActivity() {
 
     val id = intent.getIntExtra("id", -1)
 
-    MovieRepository.getMovieById(id) {
+    MovieRepository.getMovieById(id){
       binding.movieTitle.text = it.title
-      binding.movieTagline.text = it.tagline
-      binding.movieReleaseDate.text = it.releaseDate
-      binding.movieRating.text = it.rating.toString()
+      binding.movieRating.text = it.vote_average.toString()
       binding.movieBudget.text = it.budget.toString()
       binding.movieRevenue.text = it.revenue.toString()
+      binding.movieReleaseDate.text = it.release_date
+
+
       binding.movieOverview.text = it.overview
 
       Glide.with(binding.root)
-        .load("${BASE_IMAGE}${it.posterPath}")
-    }
+        .load("${BASE_IMAGE_URL}${it.backdrop_path}")
+        .into(binding.moviePoster)
 
+    }
   }
 }

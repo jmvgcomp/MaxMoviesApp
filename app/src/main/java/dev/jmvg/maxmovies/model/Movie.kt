@@ -1,24 +1,14 @@
 package dev.jmvg.maxmovies.model
 
-import com.google.gson.annotations.SerializedName
 
-
-data class Movie(
-  val id: Int,
-  val title: String,
-  val overview: String,
-  val popularity: Double,
-  val budget: Int,
-  val revenue: Long,
-  val tagline: String,
-  @SerializedName("vote_avarage")
-  val rating: Double,
-  @SerializedName("poster_path")
-  val posterPath: Int,
-  @SerializedName("release_date")
-  val releaseDate: String,
-  val runtime: Int,
-  val status: String,
-//  val page: Int,
-//  val results: List<Movie>
-)
+data class Movie(val title: String,
+                 val id: Int,
+                 val vote_count: Int,
+                 val poster_path: String,
+                 val overview: String,
+                 val budget: Int,
+                 val revenue: Int,
+                 val vote_average: Double,
+                 val release_date: String,
+                 val backdrop_path: String,
+                 val runtime: Int?)
